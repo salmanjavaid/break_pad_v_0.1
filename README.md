@@ -10,9 +10,9 @@ It contains 4 files.
 
 To compile this project on Windows, GYP was used to generate Visual Studio project files.
 
-The gyp file is located here [3]. Generate the project with this command:
+The gyp file is located here [3]. Generate the project with this command by typing this in the break_pad_v_0.1 directory:
 
-breakpad\src\tools\gyp\gyp.bat --no-circular-check src\client\minidump_file_writer.gyp
+breakpad\src\tools\gyp\gyp.bat --no-circular-check breakpad\src\client\minidump_file_writer.gyp
 
 Details:
 
