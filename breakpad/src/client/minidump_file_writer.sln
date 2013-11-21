@@ -1,0 +1,18 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "minidump_file_writer_unittest", "minidump_file_writer_unittest.vcxproj", "{35006AD1-0C0D-411C-3A48-94F05FC04151}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Win32 = Default|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{35006AD1-0C0D-411C-3A48-94F05FC04151}.Default|Win32.ActiveCfg = Default|Win32
+		{35006AD1-0C0D-411C-3A48-94F05FC04151}.Default|Win32.Build.0 = Default|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+	EndGlobalSection
+EndGlobal
