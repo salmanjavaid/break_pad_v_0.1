@@ -1,6 +1,6 @@
 Minidump Unittest port to Windows. v 0.1.
 
-The minidump_file_writer_unittest is located here[1]. The project was previously developed on Linux.[2]
+The minidump_file_writer_unittest is located here [1]. The project was previously developed on Linux [2].
 It contains 4 files.
 
 1. minidump_file_writer_unittest.cc
@@ -10,7 +10,7 @@ It contains 4 files.
 
 To compile this project on Windows, GYP was used to generate Visual Studio project files.
 
-The gyp file is located here[3]. Generate the project with this command:
+The gyp file is located here [3]. Generate the project with this command:
 
 breakpad\src\tools\gyp\gyp.bat --no-circular-check src\client\minidump_file_writer.gyp
 
@@ -29,11 +29,11 @@ The 4 files mentioned above use these 4 POSIX functions:
 
 1. int open(const char *pathname,
 int flags, mode_t mode) [4]; /* function used to open files, at various points sys_open is also used but no explanation is given */
-2. ssize_t read(int fd, void *buf, size_t count)[5]; /* function used to read a file */
-3. ssize_t write(int fd, const void *buf, size_t count)[6];  /* function used to write to a file */
-2. int close(int fd)[7]; /* function used to close a file */
-3. int ftruncate(int fd, off_t length)[8];  /* function used to truncate the file  */
-4. off_t lseek(int fd, off_t offset, int whence)[9]; /* move in file at the very basic */
+2. ssize_t read(int fd, void *buf, size_t count) [5]; /* function used to read a file */
+3. ssize_t write(int fd, const void *buf, size_t count) [6];  /* function used to write to a file */
+2. int close(int fd) [7]; /* function used to close a file */
+3. int ftruncate(int fd, off_t length) [8];  /* function used to truncate the file  */
+4. off_t lseek(int fd, off_t offset, int whence) [9]; /* move in file at the very basic */
 
 These functions were replaced with Windows API functions
 
