@@ -189,17 +189,9 @@ static bool CompareFile(const char *path) {
 	  NULL // extended attributes for file
 	  );
 
-  if (_oFile != INVALID_HANDLE_VALUE) {
+  if (_oFile != INVALID_HANDLE_VALUE) { /* if the function succeeds proceed*/
 	 if(FALSE != ReadFile(_oFile, ReadBuffer, expected_byte_count-1, &dwBytesRead, NULL)) {
-		  char *b1, *b2;
-		  int count = 0;
-		  b1 = reinterpret_cast<char*>(ReadBuffer);
-		  b2 = reinterpret_cast<char*>(expected);
-		  while (count < expected_byte_count) {
-				std::cout<<*b1<<std::endl;		
-				b1++;
-				count++;
-		  }		  
+		 /* This code was not audited */
      }
   }
   return true;  
