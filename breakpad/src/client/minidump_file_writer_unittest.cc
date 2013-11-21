@@ -189,9 +189,9 @@ static bool CompareFile(const char *path) {
 	  NULL // extended attributes for file
 	  );
 
-  if (_oFile != INVALID_HANDLE_VALUE) { /* if the function succeeds proceed*/
+  if (_oFile != INVALID_HANDLE_VALUE) { /* go ahead if the previous function succeeds */
 	 if(FALSE != ReadFile(_oFile, ReadBuffer, expected_byte_count-1, &dwBytesRead, NULL)) {
-		 /* This code was not audited */
+			// read the file
      }
   }
   return true;  
@@ -199,11 +199,9 @@ static bool CompareFile(const char *path) {
 }
 
 static bool RunTests() {
-#ifdef _WIN32
-  LPCTSTR path = "E:\\minidump_file_writer_unittest.dmp";
-#else
+
   const char *path = "E:\\minidump_file_writer_unittest.dmp";
-#endif 
+
   int a = 1;
   a = 5;
   ASSERT_TRUE(WriteFile(path));
