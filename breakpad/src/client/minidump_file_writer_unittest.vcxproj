@@ -7,7 +7,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{35006AD1-0C0D-411C-3A48-94F05FC04151}</ProjectGuid>
+    <ProjectGuid>{A19FF8B3-36DB-B8EB-2174-E614EB9BED75}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>minidump_file_writer_unittest</RootNamespace>
   </PropertyGroup>
@@ -44,14 +44,14 @@
     <None Include="minidump_file_writer.gyp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="minidump_file_writer.h" />
     <ClInclude Include="minidump_file_writer-inl.h" />
+    <ClInclude Include="minidump_file_writer.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\common\string_conversion.cc" />
     <ClCompile Include="minidump_file_writer_unittest.cc" />
     <ClCompile Include="minidump_file_writer.cc" />
     <ClCompile Include="..\common\convert_UTF.c" />
+    <ClCompile Include="..\common\string_conversion.cc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

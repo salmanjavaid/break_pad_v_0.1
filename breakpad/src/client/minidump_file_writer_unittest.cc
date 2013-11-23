@@ -174,7 +174,7 @@ static bool CompareFile(const char *path) {
 
   ASSERT_EQ(memcmp(buffer, expected, expected_byte_count), 0);
   return true;
-#else
+#elif _WIN32
   size_t expected_byte_count = sizeof(expected);
   HANDLE hFile; 
   DWORD  dwBytesRead = 0;
@@ -192,6 +192,14 @@ static bool CompareFile(const char *path) {
   if (_oFile != INVALID_HANDLE_VALUE) { /* go ahead if the previous function succeeds */
 	 if(FALSE != ReadFile(_oFile, ReadBuffer, expected_byte_count-1, &dwBytesRead, NULL)) {
 			// read the file
+			  char *b1, *b2;
+			  size_t count = 0;
+			  b1 = reinterpret_cast<char*>(ReadBuffer);
+			  while (count < expected_byte_count) {
+				  std::cout<<*b1<<std::endl;
+				  b1++;
+				  count++;
+			  }
      }
   }
   return true;  

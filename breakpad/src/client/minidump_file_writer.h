@@ -114,8 +114,8 @@ public:
   // Return true on success, or false on failure
 #ifndef _WIN32
   bool Copy(MDRVA position, const void *src, ssize_t size);
-#else
-  bool Copy(MDRVA position, LPCVOID src, SSIZE_T size);
+#elif _WIN32
+  bool Copy(MDRVA position, const void* src, SSIZE_T size);
   __int64 myFileSeek(HANDLE hf, __int64 distance, DWORD MoveMethod);
 #endif
   // Return the current position for writing to the minidump

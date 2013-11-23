@@ -120,7 +120,7 @@ bool MinidumpFileWriter::Close() {
 #endif
     file_ = -1;
   }
-#else
+#elif _WIN32
   if (hFile_ != INVALID_HANDLE_VALUE) {
 		LARGE_INTEGER li; //LARGE_INETEGR to tell how many bytes
 		li.QuadPart = position_; // SetFilePointerEx expected a large integer
@@ -310,7 +310,7 @@ MDRVA MinidumpFileWriter::Allocate(size_t size) {
 
     size_ = new_size;
   }
-#else
+#elif _WIN32
     if (position_ + aligned_size > size_) {
 		size_t growth = aligned_size;
 		size_t minimal_growth = getpagesize_WIN();
@@ -375,8 +375,8 @@ bool MinidumpFileWriter::Copy(MDRVA position, const void *src, ssize_t size) {
 
   return false;
 }
-#else
-bool MinidumpFileWriter::Copy(MDRVA position, LPCVOID src, SSIZE_T size) {
+#elif _WIN32
+bool MinidumpFileWriter::Copy(MDRVA position, const void* src, SSIZE_T size) {
 
   assert(src);
   assert(size);
@@ -441,12 +441,8 @@ bool UntypedMDRVA::Copy(MDRVA pos, const void *src, size_t size) {
   assert(src);
   assert(size);
   assert(pos + size <= position_ + size_);
-#ifndef _WIN32
-  return writer_->Copy(pos, src, size);
-#else
-  return writer_->Copy(pos, src, size); /* Implement in Windows*/
-#endif
 
+  return writer_->Copy(pos, src, size);
 }
 
 }  // namespace google_breakpad
